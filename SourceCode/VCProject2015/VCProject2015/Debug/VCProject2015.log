@@ -1,0 +1,30 @@
+﻿  Main.cpp
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\main.cpp(85): warning C4800: “const int”: 将值强制为布尔值“true”或“false”(性能警告)
+  LessonX.cpp
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(540): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(541): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(548): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(558): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(574): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(575): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(595): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(621): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(622): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(642): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(655): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(681): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(682): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(702): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(715): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(735): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(842): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(885): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+c:\program files (x86)\funcode\games\破晓\sourcecode\src\lessonx.cpp(892): warning C4244: “参数”: 从“int”转换到“const float”，可能丢失数据
+  正在生成代码...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Program Files (x86)\FunCode\Games\破晓\SourceCode\VCProject2015\VCProject2015\Debug\VCProject2015.exe) does not match the Linker's OutputFile property value (C:\Program Files (x86)\FunCode\Games\破晓\Bin\Game.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(VCProject2015) does not match the Linker's OutputFile property value (Game). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+LessonX.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:LBR”规范)
+LINK : warning LNK4098: 默认库“LIBCMT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+CommonAPI_2015.lib(CommonAPI.obj) : warning LNK4099: 未找到 PDB“CommonAPI_2015.pdb”(使用“CommonAPI_2015.lib(CommonAPI.obj)”或在“C:\Program Files (x86)\FunCode\Games\破晓\SourceCode\VCProject2015\VCProject2015\Debug\CommonAPI_2015.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  VCProject2015.vcxproj -> C:\Program Files (x86)\FunCode\Games\破晓\SourceCode\VCProject2015\VCProject2015\Debug\VCProject2015.exe
+  VCProject2015.vcxproj -> Debug\VCProject2015.pdb (Full PDB)
