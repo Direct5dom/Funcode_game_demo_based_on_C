@@ -2,11 +2,11 @@
 // (C) SI-Xiaolong(ustb_stu_sixiaolong@outlook.com)
 // (c) LU-Wanning
 // (C) SONG-Yao
-// MIT License
+// Apache License 2.0
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
-//°üº¬Í·ÎÄ¼ş
+//åŒ…å«å¤´æ–‡ä»¶
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <Stdio.h>
@@ -15,89 +15,89 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
-//È«¾Ö±äÁ¿
+//å…¨å±€å˜é‡
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Õâ²¿·ÖÈ«¾Ö±äÁ¿Ç£³¶µ½ÓÎÏ·×´Ì¬
-int	g_iGameState = 1;				//ÓÎÏ·×´Ì¬£¬0 -- ÓÎÏ·½áÊøµÈ´ı¿ªÊ¼×´Ì¬£»1 -- ³õÊ¼»¯ÓÎÏ·£»2 -- ÓÎÏ·½øĞĞÖĞ£»
-int	g_Play = 0;						//Êó±êÊÇ·ñÔÚPlayÉÏ
-int	g_About = 0;					//Êó±êÊÇ·ñÔÚAboutÉÏ
-int g_Back = 0;						//Êó±êÊÇ·ñÔÚBackÉÏ
-int g_GG = 0;						//Êó±êÊÇ·ñÔÚ¡°Í¨¹Ø¡±ÉÏ
-int MapLoad = 0;					//ÓÎÏ·¹Ø¿¨
-int	g_BLevel = 0;					//µ±Ç°´ó¹Ø
-int	g_SLevel = 0;					//µ±Ç°Ğ¡¹Ø
-float g_GameTime = 0;				//ÓÎÏ·ÔËĞĞÊ±¼ä
-float g_BossAttackTime1 = 1;		//BOSS¹¥»÷Ê±¼ä1
-float g_BossAttackTime2 = 1;		//BOSS¹¥»÷Ê±¼ä2
-float g_BossAttackTime3 = 1;		//BOSS¹¥»÷Ê±¼ä3
+//è¿™éƒ¨åˆ†å…¨å±€å˜é‡ç‰µæ‰¯åˆ°æ¸¸æˆçŠ¶æ€
+int	g_iGameState = 1;				//æ¸¸æˆçŠ¶æ€ï¼Œ0 -- æ¸¸æˆç»“æŸç­‰å¾…å¼€å§‹çŠ¶æ€ï¼›1 -- åˆå§‹åŒ–æ¸¸æˆï¼›2 -- æ¸¸æˆè¿›è¡Œä¸­ï¼›
+int	g_Play = 0;						//é¼ æ ‡æ˜¯å¦åœ¨Playä¸Š
+int	g_About = 0;					//é¼ æ ‡æ˜¯å¦åœ¨Aboutä¸Š
+int g_Back = 0;						//é¼ æ ‡æ˜¯å¦åœ¨Backä¸Š
+int g_GG = 0;						//é¼ æ ‡æ˜¯å¦åœ¨â€œé€šå…³â€ä¸Š
+int MapLoad = 0;					//æ¸¸æˆå…³å¡
+int	g_BLevel = 0;					//å½“å‰å¤§å…³
+int	g_SLevel = 0;					//å½“å‰å°å…³
+float g_GameTime = 0;				//æ¸¸æˆè¿è¡Œæ—¶é—´
+float g_BossAttackTime1 = 1;		//BOSSæ”»å‡»æ—¶é—´1
+float g_BossAttackTime2 = 1;		//BOSSæ”»å‡»æ—¶é—´2
+float g_BossAttackTime3 = 1;		//BOSSæ”»å‡»æ—¶é—´3
 float g_BossAttackTime4 = 1;
 ////////////////////////////////////////////////////////////////////////////////
-//Õâ²¿·ÖÈ«¾Ö±äÁ¿Ç£³¶µ½ÓÎÏ·µÄBOSS¹ØÉè¼Æ
-int	g_BOSS1_HP = 100;				//µÚÒ»BOSSµÄHP
-int	g_BOSS2_HP = 200;				//µÚ¶şBOSSµÄHP
-int g_BOSS3_HP = 300;				//µÚÈıBOSSµÄHP
-int g_BOSS4_HP = 400;				//µÚËÄBOSSµÄHP
-int g_BOSS1IsAlive = 1;				//µÚÒ»BossÊÇ·ñ´æ»î
-int g_BOSS2IsAlive = 1;				//µÚ¶şBossÊÇ·ñ´æ»î
-int g_BOSS3IsAlive = 1;				//µÚÈıBossÊÇ·ñ´æ»î
-int g_BOSS4IsAlive = 1;				//µÚËÄBossÊÇ·ñ´æ»î
-int BossIsMeX;						//BOSSXÖá×ø±ê
-int BossIsMeY;						//BOSSYÖá×ø±ê
+//è¿™éƒ¨åˆ†å…¨å±€å˜é‡ç‰µæ‰¯åˆ°æ¸¸æˆçš„BOSSå…³è®¾è®¡
+int	g_BOSS1_HP = 100;				//ç¬¬ä¸€BOSSçš„HP
+int	g_BOSS2_HP = 200;				//ç¬¬äºŒBOSSçš„HP
+int g_BOSS3_HP = 300;				//ç¬¬ä¸‰BOSSçš„HP
+int g_BOSS4_HP = 400;				//ç¬¬å››BOSSçš„HP
+int g_BOSS1IsAlive = 1;				//ç¬¬ä¸€Bossæ˜¯å¦å­˜æ´»
+int g_BOSS2IsAlive = 1;				//ç¬¬äºŒBossæ˜¯å¦å­˜æ´»
+int g_BOSS3IsAlive = 1;				//ç¬¬ä¸‰Bossæ˜¯å¦å­˜æ´»
+int g_BOSS4IsAlive = 1;				//ç¬¬å››Bossæ˜¯å¦å­˜æ´»
+int BossIsMeX;						//BOSSXè½´åæ ‡
+int BossIsMeY;						//BOSSYè½´åæ ‡
 ///////////////////////////////////////////////////////////////////////////////
-//Õâ²¿·ÖÊÇ³õÊ¼»¯¡¢½øĞĞÖĞ¡¢½áÊøµÄº¯Êı¶¨Òå¡£
+//è¿™éƒ¨åˆ†æ˜¯åˆå§‹åŒ–ã€è¿›è¡Œä¸­ã€ç»“æŸçš„å‡½æ•°å®šä¹‰ã€‚
 void		GameInit();
 void		GameRun(float fDeltaTime);
 void		GameEnd();
 ///////////////////////////////////////////////////////////////////////////////
-//Î»ÒÆ×´Ì¬Ïà¹ØµÄÈ«¾Ö±äÁ¿
-float StartX = 0;							//ÉÏÒ»¸ö´æ´¢µÄÖ÷½ÇÎ»ÖÃX
-float StartY = 0;							//ÉÏÒ»¸ö´æ´¢µÄÖ÷½ÇÎ»ÖÃY
-float NowX = 0;								//ÏÖÔÚµÄÖ÷½ÇÎ»ÖÃX
-float NowY = 0;								//ÏÖÔÚµÄÖ÷½ÇÎ»ÖÃY
-float NowVX = 0;							//ÏÖÔÚµÄÖ÷½ÇËÙ¶ÈX
-float NowVY = 0;							//ÏÖÔÚµÄÖ÷½ÇËÙ¶ÈY
+//ä½ç§»çŠ¶æ€ç›¸å…³çš„å…¨å±€å˜é‡
+float StartX = 0;							//ä¸Šä¸€ä¸ªå­˜å‚¨çš„ä¸»è§’ä½ç½®X
+float StartY = 0;							//ä¸Šä¸€ä¸ªå­˜å‚¨çš„ä¸»è§’ä½ç½®Y
+float NowX = 0;								//ç°åœ¨çš„ä¸»è§’ä½ç½®X
+float NowY = 0;								//ç°åœ¨çš„ä¸»è§’ä½ç½®Y
+float NowVX = 0;							//ç°åœ¨çš„ä¸»è§’é€Ÿåº¦X
+float NowVY = 0;							//ç°åœ¨çš„ä¸»è§’é€Ÿåº¦Y
 ///////////////////////////////////////////////////////////////////////////////
-//×¼±¸ĞÂ¾«ÁéµÄÃû×Ö
-char *destWQ = dMakeSpriteName("WQ", 0);					//Ö÷½Ç¹¥»÷1
-char *destBOSSWQ = dMakeSpriteName("BOSSWQ", 0);			//BOSS¹¥»÷1
-char *destBLD = dMakeSpriteName("BLD", 0);					//ËÀÍöĞ§¹û
-char *destBOSSBLD = dMakeSpriteName("BOSSBLD", 0);			//BOSSËÀÍöĞ§¹û
-char *destSSLM = dMakeSpriteName("SSLM", 0);				//µÚËÄÕÂµÄ·Éµú
-char *destZSLMTT = dMakeSpriteName("ZSLMTT", 0);			//µÚËÄÕÂµÄ·Éµú
+//å‡†å¤‡æ–°ç²¾çµçš„åå­—
+char *destWQ = dMakeSpriteName("WQ", 0);					//ä¸»è§’æ”»å‡»1
+char *destBOSSWQ = dMakeSpriteName("BOSSWQ", 0);			//BOSSæ”»å‡»1
+char *destBLD = dMakeSpriteName("BLD", 0);					//æ­»äº¡æ•ˆæœ
+char *destBOSSBLD = dMakeSpriteName("BOSSBLD", 0);			//BOSSæ­»äº¡æ•ˆæœ
+char *destSSLM = dMakeSpriteName("SSLM", 0);				//ç¬¬å››ç« çš„é£ç¢Ÿ
+char *destZSLMTT = dMakeSpriteName("ZSLMTT", 0);			//ç¬¬å››ç« çš„é£ç¢Ÿ
 ///////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
-//º¯ÊıÇø
+//å‡½æ•°åŒº
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //==============================================================================
 //
-// ´óÌåµÄ³ÌĞòÁ÷³ÌÎª£ºGameMainLoopº¯ÊıÎªÖ÷Ñ­»·º¯Êı£¬ÔÚÒıÇæÃ¿Ö¡Ë¢ĞÂÆÁÄ»Í¼ÏñÖ®ºó£¬¶¼»á±»µ÷ÓÃÒ»´Î¡£
+// å¤§ä½“çš„ç¨‹åºæµç¨‹ä¸ºï¼šGameMainLoopå‡½æ•°ä¸ºä¸»å¾ªç¯å‡½æ•°ï¼Œåœ¨å¼•æ“æ¯å¸§åˆ·æ–°å±å¹•å›¾åƒä¹‹åï¼Œéƒ½ä¼šè¢«è°ƒç”¨ä¸€æ¬¡ã€‚
 
 
 //==============================================================================
 //
-// ÓÎÏ·Ö÷Ñ­»·£¬´Ëº¯Êı½«±»²»Í£µÄµ÷ÓÃ£¬ÒıÇæÃ¿Ë¢ĞÂÒ»´ÎÆÁÄ»£¬´Ëº¯Êı¼´±»µ÷ÓÃÒ»´Î
-// ÓÃÒÔ´¦ÀíÓÎÏ·µÄ¿ªÊ¼¡¢½øĞĞÖĞ¡¢½áÊøµÈ¸÷ÖÖ×´Ì¬. 
-// º¯Êı²ÎÊıfDeltaTime : ÉÏ´Îµ÷ÓÃ±¾º¯Êıµ½´Ë´Îµ÷ÓÃ±¾º¯ÊıµÄÊ±¼ä¼ä¸ô£¬µ¥Î»£ºÃë
+// æ¸¸æˆä¸»å¾ªç¯ï¼Œæ­¤å‡½æ•°å°†è¢«ä¸åœçš„è°ƒç”¨ï¼Œå¼•æ“æ¯åˆ·æ–°ä¸€æ¬¡å±å¹•ï¼Œæ­¤å‡½æ•°å³è¢«è°ƒç”¨ä¸€æ¬¡
+// ç”¨ä»¥å¤„ç†æ¸¸æˆçš„å¼€å§‹ã€è¿›è¡Œä¸­ã€ç»“æŸç­‰å„ç§çŠ¶æ€. 
+// å‡½æ•°å‚æ•°fDeltaTime : ä¸Šæ¬¡è°ƒç”¨æœ¬å‡½æ•°åˆ°æ­¤æ¬¡è°ƒç”¨æœ¬å‡½æ•°çš„æ—¶é—´é—´éš”ï¼Œå•ä½ï¼šç§’
 void GameMainLoop( float	fDeltaTime )
 {
 	switch( g_iGameState )
 	{
-		// ³õÊ¼»¯ÓÎÏ·£¬Çå¿ÕÉÏÒ»¾ÖÏà¹ØÊı¾İ
+		// åˆå§‹åŒ–æ¸¸æˆï¼Œæ¸…ç©ºä¸Šä¸€å±€ç›¸å…³æ•°æ®
 	case 1:
 		{
 			GameInit();
-			g_iGameState	=	2; // ³õÊ¼»¯Ö®ºó£¬½«ÓÎÏ·×´Ì¬ÉèÖÃÎª½øĞĞÖĞ
+			g_iGameState	=	2; // åˆå§‹åŒ–ä¹‹åï¼Œå°†æ¸¸æˆçŠ¶æ€è®¾ç½®ä¸ºè¿›è¡Œä¸­
 		}
 		break;
 
-		// ÓÎÏ·½øĞĞÖĞ£¬´¦Àí¸÷ÖÖÓÎÏ·Âß¼­
+		// æ¸¸æˆè¿›è¡Œä¸­ï¼Œå¤„ç†å„ç§æ¸¸æˆé€»è¾‘
 	case 2:
 		{
 			GameRun( fDeltaTime );
@@ -109,26 +109,26 @@ void GameMainLoop( float	fDeltaTime )
 }
 //==============================================================================
 //
-// Ã¿¾Ö¿ªÊ¼Ç°½øĞĞ³õÊ¼»¯£¬Çå¿ÕÉÏÒ»¾ÖÏà¹ØÊı¾İ
+// æ¯å±€å¼€å§‹å‰è¿›è¡Œåˆå§‹åŒ–ï¼Œæ¸…ç©ºä¸Šä¸€å±€ç›¸å…³æ•°æ®
 void GameInit()
 {
-	//±äÁ¿³õÊ¼»¯
-	g_BossAttackTime1 = 1;		//BOSS¹¥»÷Ê±¼ä1
-	g_BossAttackTime2 = 1;		//BOSS¹¥»÷Ê±¼ä2
-	g_BossAttackTime3 = 1;		//BOSS¹¥»÷Ê±¼ä3
+	//å˜é‡åˆå§‹åŒ–
+	g_BossAttackTime1 = 1;		//BOSSæ”»å‡»æ—¶é—´1
+	g_BossAttackTime2 = 1;		//BOSSæ”»å‡»æ—¶é—´2
+	g_BossAttackTime3 = 1;		//BOSSæ”»å‡»æ—¶é—´3
 	g_BossAttackTime4 = 1;
-	g_BOSS1_HP = 100;				//µÚÒ»BOSSµÄHP
-	g_BOSS2_HP = 200;				//µÚ¶şBOSSµÄHP
+	g_BOSS1_HP = 100;				//ç¬¬ä¸€BOSSçš„HP
+	g_BOSS2_HP = 200;				//ç¬¬äºŒBOSSçš„HP
 	g_BOSS3_HP = 300;
 	g_BOSS4_HP = 400;
-	g_BOSS1IsAlive = 1;				//µÚÒ»BossÊÇ·ñ´æ»î
-	g_BOSS2IsAlive = 1;				//µÚ¶şBossÊÇ·ñ´æ»î
+	g_BOSS1IsAlive = 1;				//ç¬¬ä¸€Bossæ˜¯å¦å­˜æ´»
+	g_BOSS2IsAlive = 1;				//ç¬¬äºŒBossæ˜¯å¦å­˜æ´»
 	g_BOSS3IsAlive = 1;
 	g_BOSS4IsAlive = 1;
 
 	dAnimateSpritePlayAnimation("main", "xingxiong4Animation1", 0);
-	MapSelection();			//µØÍ¼Ñ¡Ôñ
-	NPC1();					//NPCĞĞÎª
+	MapSelection();			//åœ°å›¾é€‰æ‹©
+	NPC1();					//NPCè¡Œä¸º
 	StartX = dGetSpritePositionX("main");
 	StartY = dGetSpritePositionY("main");
 
@@ -138,10 +138,10 @@ void GameInit()
 }
 //==============================================================================
 //
-// Ã¿¾ÖÓÎÏ·½øĞĞÖĞ
+// æ¯å±€æ¸¸æˆè¿›è¡Œä¸­
 void GameRun( float fDeltaTime )
 {
-	GravitySimulation();	//ÖØÁ¦Ä£Äâ
+	GravitySimulation();	//é‡åŠ›æ¨¡æ‹Ÿ
 
 	dSetSpriteLinearVelocityY("P1T", -5);
 
@@ -164,8 +164,8 @@ void GameRun( float fDeltaTime )
 }
 //==========================================================================
 //
-// Êó±êÒÆ¶¯
-// ²ÎÊı fMouseX, fMouseY£ºÎªÊó±êµ±Ç°×ø±ê
+// é¼ æ ‡ç§»åŠ¨
+// å‚æ•° fMouseX, fMouseYï¼šä¸ºé¼ æ ‡å½“å‰åæ ‡
 void OnMouseMove( const float fMouseX, const float fMouseY )
 {
 	g_Play = dIsPointInSprite("Play", fMouseX, fMouseY);
@@ -175,9 +175,9 @@ void OnMouseMove( const float fMouseX, const float fMouseY )
 }
 //==========================================================================
 //
-// Êó±êµã»÷
-// ²ÎÊı iMouseType£ºÊó±ê°´¼üÖµ£¬¼û enum MouseTypes ¶¨Òå
-// ²ÎÊı fMouseX, fMouseY£ºÎªÊó±êµ±Ç°×ø±ê
+// é¼ æ ‡ç‚¹å‡»
+// å‚æ•° iMouseTypeï¼šé¼ æ ‡æŒ‰é”®å€¼ï¼Œè§ enum MouseTypes å®šä¹‰
+// å‚æ•° fMouseX, fMouseYï¼šä¸ºé¼ æ ‡å½“å‰åæ ‡
 void OnMouseClick( const int iMouseType, const float fMouseX, const float fMouseY )
 {
 	if (MOUSE_LEFT == iMouseType && g_Play == 1)
@@ -208,9 +208,9 @@ void OnMouseUp(const int iMouseType, const float fMouseX, const float fMouseY)
 }
 //==========================================================================
 //
-// ¼üÅÌ°´ÏÂ
-// ²ÎÊı iKey£º±»°´ÏÂµÄ¼ü£¬Öµ¼û enum KeyCodes ºê¶¨Òå
-// ²ÎÊı iAltPress, iShiftPress£¬iCtrlPress£º¼üÅÌÉÏµÄ¹¦ÄÜ¼üAlt£¬Ctrl£¬Shiftµ±Ç°ÊÇ·ñÒ²´¦ÓÚ°´ÏÂ×´Ì¬(0Î´°´ÏÂ£¬1°´ÏÂ)
+// é”®ç›˜æŒ‰ä¸‹
+// å‚æ•° iKeyï¼šè¢«æŒ‰ä¸‹çš„é”®ï¼Œå€¼è§ enum KeyCodes å®å®šä¹‰
+// å‚æ•° iAltPress, iShiftPressï¼ŒiCtrlPressï¼šé”®ç›˜ä¸Šçš„åŠŸèƒ½é”®Altï¼ŒCtrlï¼ŒShiftå½“å‰æ˜¯å¦ä¹Ÿå¤„äºæŒ‰ä¸‹çŠ¶æ€(0æœªæŒ‰ä¸‹ï¼Œ1æŒ‰ä¸‹)
 void OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, const bool bCtrlPress )
 {	
 	if (KEY_UP == iKey && 0 == dGetSpriteLinearVelocityY("main"))
@@ -254,8 +254,8 @@ void OnKeyDown( const int iKey, const bool bAltPress, const bool bShiftPress, co
 }
 //==========================================================================
 //
-// ¼üÅÌµ¯Æğ
-// ²ÎÊı iKey£ºµ¯ÆğµÄ¼ü£¬Öµ¼û enum KeyCodes ºê¶¨Òå
+// é”®ç›˜å¼¹èµ·
+// å‚æ•° iKeyï¼šå¼¹èµ·çš„é”®ï¼Œå€¼è§ enum KeyCodes å®å®šä¹‰
 void OnKeyUp(const int iKey)
 {
 	if (KEY_UP == iKey)
@@ -277,9 +277,9 @@ void OnKeyUp(const int iKey)
 }
 //===========================================================================
 //
-// ¾«ÁéÓë¾«ÁéÅö×²
-// ²ÎÊı szSrcName£º·¢ÆğÅö×²µÄ¾«ÁéÃû×Ö
-// ²ÎÊı szTarName£º±»Åö×²µÄ¾«ÁéÃû×Ö
+// ç²¾çµä¸ç²¾çµç¢°æ’
+// å‚æ•° szSrcNameï¼šå‘èµ·ç¢°æ’çš„ç²¾çµåå­—
+// å‚æ•° szTarNameï¼šè¢«ç¢°æ’çš„ç²¾çµåå­—
 void OnSpriteColSprite( const char *szSrcName, const char *szTarName )
 {
 
@@ -297,36 +297,36 @@ void OnSpriteColSprite( const char *szSrcName, const char *szTarName )
 	else if (strstr(szTarName, "SJZ") && strstr(szSrcName, destWQ))
 	{
 		g_BOSS1_HP -= 1;
-		//¿½±´BLDµ½destBLD
+		//æ‹·è´BLDåˆ°destBLD
 		dCloneSprite("BLD", destBLD);
-		//BLD·¢³ö
+		//BLDå‘å‡º
 		dSetSpritePosition(destBLD, 26, -22);
 	}
 
 	else if (strstr(szTarName, "W") && strstr(szSrcName, destWQ))
 	{
 		g_BOSS2_HP -= 1;
-		//¿½±´BLDµ½destBLD
+		//æ‹·è´BLDåˆ°destBLD
 		dCloneSprite("BLD", destBLD);
-		//BLD·¢³ö
+		//BLDå‘å‡º
 		dSetSpritePosition(destBLD, 26, -22);
 	}
 
 	else if (strstr(szTarName, "FS") && strstr(szSrcName, destWQ))
 	{
 		g_BOSS3_HP -= 1;
-		//¿½±´BLDµ½destBLD
+		//æ‹·è´BLDåˆ°destBLD
 		dCloneSprite("BLD", destBLD);
-		//BLD·¢³ö
+		//BLDå‘å‡º
 		dSetSpritePosition(destBLD, 26, -22);
 	}
 
 	else if (strstr(szTarName, "V") && strstr(szSrcName, destWQ))
 	{
 		g_BOSS4_HP -= 1;
-		//¿½±´BLDµ½destBLD
+		//æ‹·è´BLDåˆ°destBLD
 		dCloneSprite("BLD", destBLD);
-		//BLD·¢³ö
+		//BLDå‘å‡º
 		dSetSpritePosition(destBLD, 26, -22);
 	}
 
@@ -342,9 +342,9 @@ void OnSpriteColSprite( const char *szSrcName, const char *szTarName )
 }
 //===========================================================================
 //
-// ¾«ÁéÓëÊÀ½ç±ß½çÅö×²
-// ²ÎÊı szName£ºÅö×²µ½±ß½çµÄ¾«ÁéÃû×Ö
-// ²ÎÊı iColSide£ºÅö×²µ½µÄ±ß½ç 0 ×ó±ß£¬1 ÓÒ±ß£¬2 ÉÏ±ß£¬3 ÏÂ±ß
+// ç²¾çµä¸ä¸–ç•Œè¾¹ç•Œç¢°æ’
+// å‚æ•° szNameï¼šç¢°æ’åˆ°è¾¹ç•Œçš„ç²¾çµåå­—
+// å‚æ•° iColSideï¼šç¢°æ’åˆ°çš„è¾¹ç•Œ 0 å·¦è¾¹ï¼Œ1 å³è¾¹ï¼Œ2 ä¸Šè¾¹ï¼Œ3 ä¸‹è¾¹
 void OnSpriteColWorldLimit( const char *szName, const int iColSide )
 {
 	if (strstr(szName, "P1T") != NULL)
@@ -373,12 +373,12 @@ void OnSpriteColWorldLimit( const char *szName, const int iColSide )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
-//×Ô¶¨Òå¹¦ÄÜÇø
+//è‡ªå®šä¹‰åŠŸèƒ½åŒº
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //===========================================================================
 //
-//µØÍ¼Ñ¡Ôñ
+//åœ°å›¾é€‰æ‹©
 void MapSelection()
 {
 	switch (MapLoad) {
@@ -504,7 +504,7 @@ void MapSelection()
 }
 //===========================================================================
 //
-//ÏÂÒ»ÕÅµØÍ¼
+//ä¸‹ä¸€å¼ åœ°å›¾
 void MapNext()
 {
 	MapLoad += 1;
@@ -512,7 +512,7 @@ void MapNext()
 }
 //===========================================================================
 //
-//ÖØÁ¦Ä£Äâ
+//é‡åŠ›æ¨¡æ‹Ÿ
 void GravitySimulation()
 {
 	if(g_BLevel == 4)
@@ -522,34 +522,34 @@ void GravitySimulation()
 }
 //===========================================================================
 //
-//ËÀÍö´¦Àí
+//æ­»äº¡å¤„ç†
 void Dead()
 {
-	//¿½±´BLDµ½destBLD
+	//æ‹·è´BLDåˆ°destBLD
 	dCloneSprite("BLD", destBLD);
-	//BLD·¢³ö
+	//BLDå‘å‡º
 	dSetSpritePosition(destBLD, NowX, NowY);
-	//main»Ö¸´ÉÏ¸ö×ø±ê
+	//mainæ¢å¤ä¸Šä¸ªåæ ‡
 	dSetSpritePosition("main", StartX, StartY);
-	//Í£ÎÈ
+	//åœç¨³
 	dSetSpriteLinearVelocityX("main", 0);
 }
 //===========================================================================
 //
-//BOSS1ĞĞÎª
+//BOSS1è¡Œä¸º
 void BOSS1()
 {
 	if (g_BLevel == 1 && g_SLevel == 4)
 	{
-		//»ñÈ¡BOSSXµÄ×ø±ê
+		//è·å–BOSSXçš„åæ ‡
 		BossIsMeX = dGetSpritePositionX("SJZ");
 		BossIsMeY = dGetSpritePositionY("SJZ");
 
 		if (g_BossAttackTime1 - g_GameTime < 0 && NowX > -38 && NowY < 12 && g_BOSS1_HP > 0)
 		{
-			//¿½±´WQµ½destWQ
+			//æ‹·è´WQåˆ°destWQ
 			dCloneSprite("BOSSWQ", destBOSSWQ);
-			//ÎäÆ÷´ÓBOSS·¢³ö
+			//æ­¦å™¨ä»BOSSå‘å‡º
 			dSetSpritePosition(destBOSSWQ, BossIsMeX, NowY);
 			dSetSpriteLinearVelocityX(destBOSSWQ, -60);
 			dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -557,11 +557,11 @@ void BOSS1()
 		}
 		else if (g_BOSS1_HP < 0 && g_BOSS1IsAlive == 1)	//DEAD
 		{
-			//¿½±´BLDµ½destBLD
+			//æ‹·è´BLDåˆ°destBLD
 			dCloneSprite("BOSSBLD", destBOSSBLD);
-			//BLD·¢³ö
+			//BLDå‘å‡º
 			dSetSpritePosition(destBOSSBLD, BossIsMeX, BossIsMeY);
-			//É¾³ıboss¾«Áé
+			//åˆ é™¤bossç²¾çµ
 			dDeleteSprite("SJZ");
 			g_BOSS1IsAlive = 0;
 			dDeleteSprite("BK_OUT");
@@ -570,20 +570,20 @@ void BOSS1()
 }
 //===========================================================================
 //
-//BOSS2ĞĞÎª
+//BOSS2è¡Œä¸º
 void BOSS2()
 {
 	if (g_BLevel == 2 && g_SLevel == 4)
 	{
-		//»ñÈ¡BOSSXµÄ×ø±ê
+		//è·å–BOSSXçš„åæ ‡
 		BossIsMeX = dGetSpritePositionX("W");
 		BossIsMeY = dGetSpritePositionY("W");
 
 		if (g_BossAttackTime2 - g_GameTime < 0 && g_BOSS2_HP > 100)
 		{
-			//¿½±´WQµ½destWQ
+			//æ‹·è´WQåˆ°destWQ
 			dCloneSprite("BOSSWQ", destBOSSWQ);
-			//ÎäÆ÷´ÓBOSS·¢³ö
+			//æ­¦å™¨ä»BOSSå‘å‡º
 			dSetSpritePosition(destBOSSWQ, NowX, -32);
 			dSetSpriteLinearVelocityY(destBOSSWQ, 60);
 			dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -593,9 +593,9 @@ void BOSS2()
 		{
 			for (int i = 0; i < 20; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (18 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -604,11 +604,11 @@ void BOSS2()
 		}
 		else if (g_BOSS2_HP < 0 && g_BOSS2IsAlive == 1)	//DEAD
 		{
-			//¿½±´BLDµ½destBLD
+			//æ‹·è´BLDåˆ°destBLD
 			dCloneSprite("BOSSBLD", destBOSSBLD);
-			//BLD·¢³ö
+			//BLDå‘å‡º
 			dSetSpritePosition(destBOSSBLD, 26, -22);
-			//É¾³ıboss¾«Áé
+			//åˆ é™¤bossç²¾çµ
 			dDeleteSprite("W");
 			g_BOSS2IsAlive = 0;
 			dDeleteSprite("BK_OUT");
@@ -617,20 +617,20 @@ void BOSS2()
 }
 //===========================================================================
 //
-//BOSS3ĞĞÎª
+//BOSS3è¡Œä¸º
 void BOSS3()
 {
 	if (g_BLevel == 3 && g_SLevel == 4)
 	{
-		//»ñÈ¡BOSSXµÄ×ø±ê
+		//è·å–BOSSXçš„åæ ‡
 		BossIsMeX = dGetSpritePositionX("FS");
 		BossIsMeY = dGetSpritePositionY("FS");
 
 		if (g_BossAttackTime3 - g_GameTime < 0 && g_BOSS3_HP > 200)
 		{
-			//¿½±´WQµ½destWQ
+			//æ‹·è´WQåˆ°destWQ
 			dCloneSprite("BOSSWQ", destBOSSWQ);
-			//ÎäÆ÷´ÓBOSS·¢³ö
+			//æ­¦å™¨ä»BOSSå‘å‡º
 			dSetSpritePosition(destBOSSWQ, NowX, -37);
 			dSetSpriteLinearVelocityY(destBOSSWQ, 60);
 			dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -640,9 +640,9 @@ void BOSS3()
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (36 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -653,9 +653,9 @@ void BOSS3()
 		{
 			for (int i = 0; i < 40; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (9 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -664,11 +664,11 @@ void BOSS3()
 		}
 		else if (g_BOSS3_HP < 0 && g_BOSS3IsAlive == 1)	//DEAD
 		{
-			//¿½±´BLDµ½destBLD
+			//æ‹·è´BLDåˆ°destBLD
 			dCloneSprite("BOSSBLD", destBOSSBLD);
-			//BLD·¢³ö
+			//BLDå‘å‡º
 			dSetSpritePosition(destBOSSBLD, 26, -22);
-			//É¾³ıboss¾«Áé
+			//åˆ é™¤bossç²¾çµ
 			dDeleteSprite("FS");
 			g_BOSS3IsAlive = 0;
 			dDeleteSprite("BK_OUT");
@@ -677,20 +677,20 @@ void BOSS3()
 }
 //===========================================================================
 //
-//BOSS4ĞĞÎª
+//BOSS4è¡Œä¸º
 void BOSS4()
 {
 	if (g_BLevel == 4 && g_SLevel == 4)
 	{
-		//»ñÈ¡BOSSXµÄ×ø±ê
+		//è·å–BOSSXçš„åæ ‡
 		BossIsMeX = dGetSpritePositionX("V");
 		BossIsMeY = dGetSpritePositionY("V");
 
 		if (g_BossAttackTime4 - g_GameTime < 0 && g_BOSS4_HP > 300)
 		{
-			//¿½±´WQµ½destWQ
+			//æ‹·è´WQåˆ°destWQ
 			dCloneSprite("BOSSWQ", destBOSSWQ);
-			//ÎäÆ÷´ÓBOSS·¢³ö
+			//æ­¦å™¨ä»BOSSå‘å‡º
 			dSetSpritePosition(destBOSSWQ, NowX, -37);
 			dSetSpriteLinearVelocityY(destBOSSWQ, 60);
 			dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -700,9 +700,9 @@ void BOSS4()
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (36 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -713,9 +713,9 @@ void BOSS4()
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (36 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -724,18 +724,18 @@ void BOSS4()
 		}
 		else if (g_BossAttackTime4 - g_GameTime < 0 && g_BOSS4_HP < 100 && g_BOSS4_HP > 0)
 		{
-			//¿½±´WQµ½destWQ
+			//æ‹·è´WQåˆ°destWQ
 			dCloneSprite("BOSSWQ", destBOSSWQ);
-			//ÎäÆ÷´ÓBOSS·¢³ö
+			//æ­¦å™¨ä»BOSSå‘å‡º
 			dSetSpritePosition(destBOSSWQ, NowX, -37);
 			dSetSpriteLinearVelocityY(destBOSSWQ, 60);
 			dSetSpriteAngularVelocity(destBOSSWQ, 500);
 			g_BossAttackTime4 = g_GameTime + 1;
 			for (int i = 0; i < 10; i++)
 			{
-				//¿½±´WQµ½destWQ
+				//æ‹·è´WQåˆ°destWQ
 				dCloneSprite("BOSSWQ", destBOSSWQ);
-				//ÎäÆ÷´ÓBOSS·¢³ö
+				//æ­¦å™¨ä»BOSSå‘å‡º
 				dSetSpritePosition(destBOSSWQ, 26, -22);
 				dSetSpriteLinearVelocityPolar(destBOSSWQ, 80, (36 * i));
 				dSetSpriteAngularVelocity(destBOSSWQ, 500);
@@ -744,11 +744,11 @@ void BOSS4()
 		}
 		else if (g_BOSS4_HP < 0 && g_BOSS4IsAlive == 1)	//DEAD
 		{
-			//¿½±´BLDµ½destBLD
+			//æ‹·è´BLDåˆ°destBLD
 			dCloneSprite("BOSSBLD", destBOSSBLD);
-			//BLD·¢³ö
+			//BLDå‘å‡º
 			dSetSpritePosition(destBOSSBLD, 26, -22);
-			//É¾³ıboss¾«Áé
+			//åˆ é™¤bossç²¾çµ
 			dDeleteSprite("V");
 			g_BOSS4IsAlive = 0;
 			MapLoad += 1;
@@ -758,22 +758,22 @@ void BOSS4()
 }
 //
 //
-//¹¥»÷1
+//æ”»å‡»1
 void Attack1()
 {
-	//¿½±´WQµ½destWQ
+	//æ‹·è´WQåˆ°destWQ
 	dCloneSprite("WQ", destWQ);
-	//»ñÈ¡ÈËÎï³¯Ïò
+	//è·å–äººç‰©æœå‘
 	int a = dGetSpriteFlipX("main");
-	//ÎäÆ÷´Ómain·¢³ö
+	//æ­¦å™¨ä»mainå‘å‡º
 	dSetSpritePosition(destWQ, NowX, NowY);
-	//·ÖÖ§ÏòÓÒ
+	//åˆ†æ”¯å‘å³
 	if (a == 0)
 	{
 		dSetSpriteLinearVelocityX(destWQ, 60);
 		dSetSpriteAngularVelocity(destWQ, 500);
 	}
-	//·ÖÖ§Ïò×ó
+	//åˆ†æ”¯å‘å·¦
 	if (a == 1)
 	{
 		dSetSpriteLinearVelocityX(destWQ, -60);
@@ -782,22 +782,22 @@ void Attack1()
 }
 //
 //
-//¹¥»÷2
+//æ”»å‡»2
 void Attack2()
 {
-	//¿½±´WQµ½destWQ
+	//æ‹·è´WQåˆ°destWQ
 	dCloneSprite("WQ", destWQ);
-	//»ñÈ¡ÈËÎï³¯Ïò
+	//è·å–äººç‰©æœå‘
 	int a = dGetSpriteFlipX("main");
-	//ÎäÆ÷´Ómain·¢³ö
+	//æ­¦å™¨ä»mainå‘å‡º
 	dSetSpritePosition(destWQ, NowX, NowY);
-	//·ÖÖ§ÏòÓÒ
+	//åˆ†æ”¯å‘å³
 	if (a == 0)
 	{
 		dSetSpriteLinearVelocity(destWQ, 80, -40);
 		dSetSpriteAngularVelocity(destWQ, 500);
 	}
-	//·ÖÖ§Ïò×ó
+	//åˆ†æ”¯å‘å·¦
 	if (a == 1)
 	{
 		dSetSpriteLinearVelocity(destWQ, -80, -40);
@@ -806,22 +806,22 @@ void Attack2()
 }
 //
 //
-//¹¥»÷3
+//æ”»å‡»3
 void Attack3()
 {
-	//¿½±´WQµ½destWQ
+	//æ‹·è´WQåˆ°destWQ
 	dCloneSprite("WQ", destWQ);
-	//»ñÈ¡ÈËÎï³¯Ïò
+	//è·å–äººç‰©æœå‘
 	int a = dGetSpriteFlipX("main");
-	//ÎäÆ÷´Ómain·¢³ö
+	//æ­¦å™¨ä»mainå‘å‡º
 	dSetSpritePosition(destWQ, NowX, NowY);
-	//·ÖÖ§ÏòÓÒ
+	//åˆ†æ”¯å‘å³
 	if (a == 0)
 	{
 		dSetSpriteLinearVelocity(destWQ, 80, 40);
 		dSetSpriteAngularVelocity(destWQ, 500);
 	}
-	//·ÖÖ§Ïò×ó
+	//åˆ†æ”¯å‘å·¦
 	if (a == 1)
 	{
 		dSetSpriteLinearVelocity(destWQ, -80, 40);
@@ -830,19 +830,19 @@ void Attack3()
 }
 //
 //
-//¹¥»÷4
+//æ”»å‡»4
 void Attack4()
 {
 	for (int i = 0; i < 20; i++)
 	{
-		//¿½±´WQµ½destWQ
+		//æ‹·è´WQåˆ°destWQ
 		dCloneSprite("WQ", destWQ);
-		//»ñÈ¡ÈËÎï³¯Ïò
+		//è·å–äººç‰©æœå‘
 		int a = dGetSpriteFlipX("main");
-		//»ñÈ¡mainµÄ×ø±ê
+		//è·å–mainçš„åæ ‡
 		const float mainX = dGetSpritePositionX("main");
 		const float mainY = dGetSpritePositionY("main");
-		//ÎäÆ÷´Ómain·¢³ö
+		//æ­¦å™¨ä»mainå‘å‡º
 		dSetSpritePosition(destWQ, mainX, mainY);
 		dSetSpriteLinearVelocityPolar(destWQ, 80, (18 * i));
 		dSetSpriteAngularVelocity(destWQ, 500);
@@ -850,46 +850,46 @@ void Attack4()
 }
 //
 //
-//µĞÈËĞ¡±ø»î¶¯¹ì¼£
+//æ•Œäººå°å…µæ´»åŠ¨è½¨è¿¹
 void NPC1()
 {
-	//µÚÒ»¹Ø
-	///µÚÈıĞ¡¹Ø
+	//ç¬¬ä¸€å…³
+	///ç¬¬ä¸‰å°å…³
 	dSetSpriteLinearVelocityY("TSLM1", 40);
 	dSetSpriteLinearVelocityY("TSLM2", 80);
 	dSetSpriteLinearVelocityY("TSLM3", 80);
 
-	//µÚ¶ş¹Ø
-	///µÚÒ»Ğ¡¹Ø
+	//ç¬¬äºŒå…³
+	///ç¬¬ä¸€å°å…³
 	dSetSpriteLinearVelocityY("SLM1", 40);
 	dSetSpriteLinearVelocityY("SLM2", 80);
 	dSetSpriteLinearVelocityX("SLM3", 80);
-	///µÚ¶şĞ¡¹Ø
+	///ç¬¬äºŒå°å…³
 	dSetSpriteLinearVelocityY("SLM4", 80);
-	///µÚÈıĞ¡¹Ø
+	///ç¬¬ä¸‰å°å…³
 	dSetSpriteLinearVelocityY("BK_1", -10);
 	dSetSpriteLinearVelocityY("BK_2", -11);
 	dSetSpriteLinearVelocityX("BK_3", -12);
 	dSetSpriteLinearVelocityY("BK_4", -13);
 	
-	//µÚÈı¹Ø
-	///µÚ¶şĞ¡¹Ø
+	//ç¬¬ä¸‰å…³
+	///ç¬¬äºŒå°å…³
 	dSetSpriteLinearVelocityY("MU_01", -10);
 	dSetSpriteLinearVelocityY("MU_02", 20);
-	///µÚÈıĞ¡¹Ø
+	///ç¬¬ä¸‰å°å…³
 	dSetSpriteLinearVelocity("TTTSLM01", -10, 22);
 	dSetSpriteLinearVelocity("TTTSLM02", 22, 10);
 	dSetSpriteLinearVelocity("TTTSLM03", 19, 15);
 
-	//µÚËÄ¹Ø
-	///µÚÒ»Ğ¡¹Ø
+	//ç¬¬å››å…³
+	///ç¬¬ä¸€å°å…³
 	for (int i = 0; i < 30; i++)
 	{
 		dCloneSprite("SSLM", destSSLM);
 		dSetSpritePosition(destSSLM, -1, -7);
 		dSetSpriteLinearVelocityPolar(destSSLM, 80, ((10 * i)+30));
 	}
-	///µÚ¶şĞ¡¹Ø
+	///ç¬¬äºŒå°å…³
 	for (int i = 0; i < 35; i++)
 	{
 		dCloneSprite("ZSLMTT", destZSLMTT);
